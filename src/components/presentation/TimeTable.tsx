@@ -38,6 +38,7 @@ function TimeTable({
                   <th className="p-3 border text-left">Subject</th>
                   <th className="p-3 border text-left">Specialisation</th>
                   <th className="p-3 border text-left">Room</th>
+                  <th className="p-3 border text-left"></th>
                 </tr>
               </thead>
               <tbody>
@@ -53,17 +54,18 @@ function TimeTable({
                       <td className="p-3 border">{!isRepeated && dayName}</td>
                       <td className="p-3 border">{getTimeSlot(course.time)}</td>
                       <td className="p-3 border">{course.code}</td>
-                      <td className="p-3 border">
-                        <Link
-                          className="hover:underline underline-offset-2"
-                          to={`/courses/${course.code}/students`}
-                        >
-                          {course.name}
-                        </Link>
-                      </td>
+                      <td className="p-3 border">{course.name}</td>
                       <td className="p-3 border">{course.specialisation}</td>
                       <td className="p-3 border">
                         {course.building + " " + course.room}
+                      </td>
+                      <td className="p-3 border">
+                        <Link
+                          className="hover:underline underline-offset-2 text-red-700 hover:text-red-500"
+                          to={`/courses/${course.code}/students`}
+                        >
+                          View Students
+                        </Link>
                       </td>
                     </tr>
                   );
