@@ -10,7 +10,8 @@ function LoginPage() {
   const [error, setError] = useState<string>("");
   const auth = useAuth();
 
-  if (auth !== null && auth.isAuthenticated === true) return <Navigate to={"/timetable"} replace />
+  if (auth !== null && auth.isAuthenticated === true)
+    return <Navigate to={"/dashboard"} replace />;
 
   const handlerLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,10 +22,11 @@ function LoginPage() {
     }
 
     setError("");
-    
+
     const res = await loginUser(email, password);
 
-    if (res !== null && res.authenticated === true) auth?.setIsAuthenticated(true);
+    if (res !== null && res.authenticated === true)
+      auth?.setIsAuthenticated(true);
   };
 
   return (

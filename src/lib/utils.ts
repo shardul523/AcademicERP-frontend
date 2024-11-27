@@ -29,15 +29,15 @@ export function getDayName(dayNumber: number): string {
 export function getTimeSlot(timeslot: number): string {
   switch (timeslot) {
     case 1:
-      return "8:00 A.M. - 9:15 A.M.";
+      return "08:00 A.M. - 09:15 A.M.";
     case 2:
-      return "9:30 A.M. - 11:00 A.M.";
+      return "09:30 A.M. - 11:00 A.M.";
     case 3:
-      return "11:30 A.M. - 1:00 P.M.";
+      return "11:30 A.M. - 01:00 P.M.";
     case 4:
-      return "1:45 P.M. - 3:00 A.M.";
+      return "01:45 P.M. - 03:00 P.M.";
     case 5:
-      return "3:30 P.M. - 5:00 A.M.";
+      return "03:30 P.M. - 05:00 P.M.";
     default:
       return "Invalid";
   }

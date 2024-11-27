@@ -1,4 +1,4 @@
-import { Home, Calendar, BookOpen } from "lucide-react";
+import { Home, Calendar } from "lucide-react";
 import { Link, useLocation } from "react-router";
 
 interface SidebarItem {
@@ -25,11 +25,11 @@ const Sidebar = () => {
       label: "Timetable",
       href: "/timetable",
     },
-    {
-      icon: BookOpen,
-      label: "Courses",
-      href: "/courses",
-    },
+    // {
+    //   icon: BookOpen,
+    //   label: "Courses",
+    //   href: "/courses",
+    // },
   ];
 
   return (
