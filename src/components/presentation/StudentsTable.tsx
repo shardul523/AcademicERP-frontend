@@ -1,13 +1,23 @@
 import { Student } from "@/lib/dto";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Button } from "../ui/button";
+import { ChevronLeftIcon } from "lucide-react";
+import { useNavigate } from "react-router";
 
 function StudentsTable({ students }: { students: Student[] | null }) {
+  const navigate = useNavigate();
   return (
     <div className="container mx-auto px-4 py-8">
       <Card>
-        <CardHeader>
+        <CardHeader className="relative">
+          <Button
+            onClick={() => navigate(-1)}
+            className="absolute top-5 left-5 bg-white text-black hover:text-white"
+          >
+            <ChevronLeftIcon />
+          </Button>
           <CardTitle className="text-2xl text-center">
-            <h2>Enrolled Students</h2>
+            Enrolled Students
           </CardTitle>
         </CardHeader>
         <CardContent>
