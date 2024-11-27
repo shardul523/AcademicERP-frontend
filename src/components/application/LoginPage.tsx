@@ -10,7 +10,7 @@ function LoginPage() {
   const [error, setError] = useState<string>("");
   const auth = useAuth();
 
-  if (auth !== null && auth.isAuthenticated === true) return <Navigate to={"/"} replace />
+  if (auth !== null && auth.isAuthenticated === true) return <Navigate to={"/timetable"} replace />
 
   const handlerLogin = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

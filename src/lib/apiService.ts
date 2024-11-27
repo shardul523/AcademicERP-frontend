@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LoginResponse } from "./dto";
+import { CoursesResponse, LoginResponse } from "./dto";
 
 const BASE_URL = "http://localhost:8080/api/v1";
 let token: string;
@@ -23,14 +23,13 @@ export async function loginUser(
   }
 }
 
-export async function getEmployeeCourses() {
+export async function getEmployeeCourses(): Promise<CoursesResponse[] | null> {
   try {
     const response = await axios.get(`${BASE_URL}/employee/courses`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-
     return response.data;
   } catch (err: unknown) {
     console.error(err);
@@ -43,7 +42,6 @@ export async function getEmployeeDetails() {
     const response = await axios.get(`${BASE_URL}/employee`,
       {headers: {'Authorization':  `Bearer ${token}`}}
     )
-
     return response?.data;
   } catch(err: unknown) {
     console.error(err);
