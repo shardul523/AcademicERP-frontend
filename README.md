@@ -25,7 +25,7 @@ The **code architecture** follows a _layered-architecture_.
 - Clone the repository:
 
 ```bash
-git clone [https://github.com/shardul523/AcademicERP-frontend.git](https://github.com/shardul523/AcademicERP-frontend.git)
+git clone https://github.com/shardul523/AcademicERP-frontend.git
 ```
 
 - Navigate to the project directory:
