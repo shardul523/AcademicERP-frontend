@@ -13,7 +13,7 @@ function CourseStudentsList() {
       </div>
     );
 
-  return <StudentsTable students={students} />;
+  return <StudentsTable courseCode={courseCode} students={students} />;
 }
 
 export default CourseStudentsList;

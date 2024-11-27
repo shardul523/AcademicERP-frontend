@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { ChevronLeftIcon } from "lucide-react";
 import { useNavigate } from "react-router";
 
-function StudentsTable({ students }: { students: Student[] | null }) {
+function StudentsTable({ students, courseCode }: { students: Student[] | null, courseCode: string | undefined}) {
   const navigate = useNavigate();
   return (
     <div className="container mx-auto px-4 py-8">
@@ -17,7 +17,7 @@ function StudentsTable({ students }: { students: Student[] | null }) {
             <ChevronLeftIcon />
           </Button>
           <CardTitle className="text-2xl text-center">
-            Enrolled Students
+            Students Enrolled in {courseCode}
           </CardTitle>
         </CardHeader>
         <CardContent>
