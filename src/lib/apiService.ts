@@ -65,3 +65,8 @@ export async function getCourseStudents(courseCode: string) {
     return null;
   }
 }
+
+export function logoutUser() {
+  token = "";
+  storeTokenLocal("");
+}
