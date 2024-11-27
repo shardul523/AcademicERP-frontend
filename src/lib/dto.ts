@@ -5,5 +5,9 @@ export interface LoginResponse {
 }
 
 export interface User {
-  token: string;
+  email: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  title: string | null;
+  photographPath: string | null;
 }

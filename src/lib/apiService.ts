@@ -15,6 +15,7 @@ export async function loginUser(
     });
 
     token = response?.data?.jwt;
+
     return response.data;
   } catch (err: unknown) {
     console.error(err);
@@ -22,7 +23,7 @@ export async function loginUser(
   }
 }
 
-export async function getFacultyCourses() {
+export async function getEmployeeCourses() {
   try {
     const response = await axios.get(`${BASE_URL}/employee/courses`, {
       headers: {
@@ -32,6 +33,19 @@ export async function getFacultyCourses() {
 
     return response.data;
   } catch (err: unknown) {
+    console.error(err);
+    return null;
+  }
+}
+
+export async function getEmployeeDetails() {
+  try {
+    const response = await axios.get(`${BASE_URL}/employee`,
+      {headers: {'Authorization':  `Bearer ${token}`}}
+    )
+
+    return response?.data;
+  } catch(err: unknown) {
     console.error(err);
     return null;
   }
