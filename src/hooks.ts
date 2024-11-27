@@ -1,21 +1,24 @@
-import { useEffect, useState } from "react"
-import { CoursesResponse } from "./lib/dto"
-import { getEmployeeCourses } from "./lib/apiService";
-import { useAuth } from "./context/AuthContext";
+import { useEffect, useState } from "react";
+import { CoursesResponse, Student } from "./lib/dto";
+import { getCourseStudents, getEmployeeCourses } from "./lib/apiService";
 
 export const useEmployeeCourses = () => {
-    const [courses, setCourses] = useState<CoursesResponse[] | null>(null);
-    const auth = useAuth();
+  const [courses, setCourses] = useState<CoursesResponse[] | null>(null);
 
-    useEffect(() => {
-        getEmployeeCourses().then(val => {
-            if (val === null) {
-                auth?.setIsAuthenticated(false);
-            } else {
-                setCourses(val);
-            }
-        })
-    }, [])
+  useEffect(() => {
+    getEmployeeCourses().then(setCourses);
+  }, [setCourses]);
 
-    return courses;
-}
+  return courses;
+};
+
+export const useCourseStudents = (courseCode: string | undefined) => {
+  const [students, setStudents] = useState<Student[] | null>(null);
+
+  useEffect(() => {
+    if (!courseCode) return;
+    getCourseStudents(courseCode).then(setStudents);
+  }, [courseCode]);
+
+  return students;
+};

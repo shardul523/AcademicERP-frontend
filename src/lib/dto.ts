@@ -35,3 +35,12 @@ export interface CoursesResponse {
   courseSchedule: CourseSchedule;
   specialisation: string;
 }
+
+export interface Student {
+  email: string;
+  firstName: string;
+  lastName: string;
+  rollNumber: string;
+  photographPath: string;
+  specialisation: string;
+}
