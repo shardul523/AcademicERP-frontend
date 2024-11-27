@@ -17,6 +17,8 @@ function TimeTable({
 }: {
   courses: FormattedCoursesProps[] | undefined;
 }) {
+  let prev = "";
+
   return (
     <div className="container mx-auto px-4 py-8">
       <Card>
@@ -39,28 +41,33 @@ function TimeTable({
                 </tr>
               </thead>
               <tbody>
-                {courses?.map((course) => (
-                  <tr
-                    className="hover:bg-gray-50"
-                    key={course.code + course.day + course.time}
-                  >
-                    <td className="p-3 border">{getDayName(course.day)}</td>
-                    <td className="p-3 border">{getTimeSlot(course.time)}</td>
-                    <td className="p-3 border">{course.code}</td>
-                    <td className="p-3 border">
-                      <Link
-                        className="hover:underline underline-offset-2"
-                        to={`/course/${course.code}/students`}
-                      >
-                        {course.name}
-                      </Link>
-                    </td>
-                    <td className="p-3 border">{course.specialisation}</td>
-                    <td className="p-3 border">
-                      {course.building + " " + course.room}
-                    </td>
-                  </tr>
-                ))}
+                {courses?.map((course) => {
+                  const dayName = getDayName(course.day);
+                  const isRepeated = dayName === prev;
+                  prev = dayName;
+                  return (
+                    <tr
+                      className="hover:bg-gray-50"
+                      key={course.code + course.day + course.time}
+                    >
+                      <td className="p-3 border">{!isRepeated && dayName}</td>
+                      <td className="p-3 border">{getTimeSlot(course.time)}</td>
+                      <td className="p-3 border">{course.code}</td>
+                      <td className="p-3 border">
+                        <Link
+                          className="hover:underline underline-offset-2"
+                          to={`/courses/${course.code}/students`}
+                        >
+                          {course.name}
+                        </Link>
+                      </td>
+                      <td className="p-3 border">{course.specialisation}</td>
+                      <td className="p-3 border">
+                        {course.building + " " + course.room}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

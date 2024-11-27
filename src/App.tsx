@@ -12,7 +12,7 @@ function App() {
         <Route element={<ProtectedRoutes />}>
           <Route path="/timetable" element={<TimeTablePage />} />
           <Route
-            path="/course/:courseCode/students"
+            path="/courses/:courseCode/students"
             element={<CourseStudentsList />}
           />
         </Route>
