@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+# Faculty Time Table Display Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This is a React-based web application designed for faculty members to be able to view their weekly schedules as well as the list of students enrolled in their courses.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application incorporates a layered architecture, ensuring modularity, scalability, and ease of maintenance. It provides the following features:
 
-## Expanding the ESLint configuration
+- **Login Page**: Secure JWT authentication for faculty members.
+- **Dashboard**: A personalized overview of user details.
+- **Time Table**: A detailed view of the faculty member's schedule.
+- **Course Students List**: A list of students enrolled in specific courses.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The **code architecture** follows a _layered-architecture_.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js (v20 or higher)
+- npm or yarn package manager
+
+### Installation
+
+- Clone the repository:
+
+```bash
+git clone https://github.com/your-repo/faculty-portal.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Navigate to the project directory:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+cd faculty-portal
 ```
+
+- Install dependencies:
+
+```bash
+npm install
+```
+
+### Running the Application
+
+Start the development server:
+
+```
+npm run dev
+```
+
+The application will be accessible at http://localhost:5173.
+
+### Building for Production
+
+To create an optimized build for production:
+
+```bash
+npm run build
+```
+
+The build files will be located in the build/ directory.
+
+## Technologies Used
+
+- **React**: Frontend library for building user interfaces.
+- **React Router**: For navigation and routing between pages.
+- **Axios**: For making API requests.
+- **Shadcn**: Component Library for styling.
+- **Node.js**: For package management and build tools.
+- **react-hot-toast**: For popup messages
