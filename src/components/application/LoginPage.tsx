@@ -3,6 +3,7 @@ import LoginForm from "../presentation/LoginForm";
 import { loginUser } from "@/lib/apiService";
 import { useAuth } from "@/context/AuthContext";
 import { Navigate } from "react-router";
+import toast from "react-hot-toast";
 
 function LoginPage() {
   const [email, setEmail] = useState<string>("");
@@ -25,8 +26,12 @@ function LoginPage() {
 
     const res = await loginUser(email, password);
 
-    if (res !== null && res.authenticated === true)
+    if (res !== null && res.authenticated === true) {
       auth?.setIsAuthenticated(true);
+      toast.success("Login successful");
+    } else {
+      toast.error("Invalid email / password");
+    }
   };
 
   return (
